@@ -17,7 +17,9 @@
     <TextField fx:id="number1Field" promptText="Number 1"/>
     <TextField fx:id="number2Field" promptText="Number 2"/>
 
-    <Button text="Calculate Save" onAction="#onCalculateClick"/>
+    <Button text="Sum &amp; Product" onAction="#onCalculateClick"/>
+    <Button text="Subtract" onAction="#onSubtractClick"/>
+    <Button text="Divide" onAction="#onDivideClick"/>
 
     <Label fx:id="resultLabel"/>
 
