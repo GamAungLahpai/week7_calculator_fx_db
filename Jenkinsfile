@@ -4,6 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "218468/week7_calculator"
         IMAGE_TAG  = "latest"
+        PATH       = "/Applications/Docker.app/Contents/Resources/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     }
 
     stages {
