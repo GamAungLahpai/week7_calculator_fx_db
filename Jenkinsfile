@@ -15,16 +15,9 @@ pipeline {
             }
         }
 
-        stage('Build JAR') {
-            steps {
-                echo '🔨 Building fat JAR with Maven...'
-                sh 'mvn clean package -DskipTests'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
-                echo '🐳 Building Docker image...'
+                echo '🐳 Building Docker image (Maven builds inside Docker)...'
                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
             }
         }
@@ -59,7 +52,7 @@ pipeline {
         }
         failure {
             echo '❌ Pipeline failed. Check the logs above.'
-            bat 'docker compose logs --tail=50'
+            sh 'docker compose logs --tail=50'
         }
         always {
             echo '🧹 Pipeline finished.'
