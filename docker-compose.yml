@@ -29,7 +29,7 @@ services:
       # make sure your DB_USER name is correct mine is root
       DB_USER: root
       # make sure your DB_PASSWORD is correct mine is root
-      DB_PASSWORD: Test12
+      DB_PASSWORD: group7
       DISPLAY: host.docker.internal:0
 #    network_mode: bridge # it cancels network of docker -> docker cannot find host db.
 volumes:

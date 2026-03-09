@@ -42,7 +42,7 @@ pipeline {
                 echo '⏳ Waiting 30s for MariaDB to fully initialise...'
                 sh 'sleep 30'
                 echo '🔍 Checking that all tables exist...'
-                sh "docker compose exec -T db mariadb -uroot -pTest12 calc_data -e 'SHOW TABLES; DESCRIBE calc_results;'"
+                sh "docker compose exec -T db mariadb -uroot -pgroup7 calc_data -e 'SHOW TABLES; DESCRIBE calc_results;'"
             }
         }
     }
