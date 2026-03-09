@@ -32,6 +32,8 @@ pipeline {
 
         stage('Start Services') {
             steps {
+                echo '🧹 Cleaning up old containers and volumes...'
+                sh 'docker compose down -v || true'
                 echo '🚀 Starting DB container with docker compose...'
                 sh 'docker compose up -d db'
             }
