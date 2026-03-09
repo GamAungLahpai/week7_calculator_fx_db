@@ -3,6 +3,8 @@ FROM eclipse-temurin:21-jdk
 
 # Optional: set up display (for GUI forwarding on macOS via XQuartz)
 ENV DISPLAY=host.docker.internal:0
+ENV LIBGL_ALWAYS_INDIRECT=1
+ENV MESA_GL_VERSION_OVERRIDE=3.0
 
 # Install dependencies for GUI + Maven build
 RUN apt-get update && \
@@ -35,4 +37,4 @@ RUN ls -l target
 
 
 # Run the **shaded JAR** with JavaFX modules
-CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "target/sum-product_fx-1.0-SNAPSHOT.jar"]
+CMD ["java", "-Dprism.order=sw", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "target/sum-product_fx-1.0-SNAPSHOT.jar"]
